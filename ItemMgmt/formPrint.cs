@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ItemMgmt
 {
-    public partial class Form1 : Form
+    public partial class formViewer : Form
     {
-        public Form1()
+        public formViewer()
         {
             InitializeComponent();
         }
