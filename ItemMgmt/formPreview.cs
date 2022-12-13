@@ -24,22 +24,6 @@ namespace ItemMgmt
         private void LoginWin_Load(object sender, EventArgs e)
         {
             conn.ConnectionString = @"Data Source=(local); Initial Catalog= GoodsMgnt;Integrated Security=True";
-
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * from Item", conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            //dataGridView1.DataSource = dt;
-            if (dt.Rows.Count > 0)
-            {
-                //MessageBox.Show("Fill sucess Welcome");
-            }
-            else
-            {
-                MessageBox.Show("No Data");
-            }
-            conn.Close();
         }
 
         private void printShip_Click(object sender, EventArgs e)
@@ -101,11 +85,6 @@ namespace ItemMgmt
             fw.crystalReportViewer1.ReportSource = mr;
             fw.crystalReportViewer1.Refresh();
             conn.Close();
-
-        }
-
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
         }
 
