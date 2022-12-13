@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace ItemMgmt
@@ -14,7 +15,9 @@ namespace ItemMgmt
     public partial class LoginWin : Form
     {
 
-        SqlConnection conn = new SqlConnection();
+        //SqlConnection conn = new SqlConnection();
+
+        String strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
 
         public LoginWin()
         {
@@ -23,11 +26,14 @@ namespace ItemMgmt
 
         private void LoginWin_Load(object sender, EventArgs e)
         {
-            conn.ConnectionString = @"Data Source=(local); Initial Catalog= GoodsMgnt;Integrated Security=True";
+            //conn.Open();
+            //conn.ConnectionString = @"Data Source=(local); Initial Catalog= GoodsMgnt;Integrated Security=True";
         }
 
         private void printShip_Click(object sender, EventArgs e)
         {
+
+            SqlConnection conn = new SqlConnection(strConn);
             formViewer fw = new formViewer();
             fw.Show();
 
@@ -48,6 +54,8 @@ namespace ItemMgmt
 
         private void printOrder_Click(object sender, EventArgs e)
         {
+
+            SqlConnection conn = new SqlConnection(strConn);
             formViewer fw = new formViewer();
             fw.Show();
 
@@ -69,6 +77,8 @@ namespace ItemMgmt
 
         private void printMonthly_Click(object sender, EventArgs e)
         {
+
+            SqlConnection conn = new SqlConnection(strConn);
             formViewer fw = new formViewer();
             fw.Show();
 
