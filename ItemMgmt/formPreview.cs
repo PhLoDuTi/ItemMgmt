@@ -41,20 +41,21 @@ namespace ItemMgmt
             {
                 conn.Open();
             }
-            SqlCommand cmd = new SqlCommand("SELECT * FROM OrderImport", conn);
+            SqlCommand cmd = new SqlCommand("select * from [OrderImport]", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds,"Items");
+            DataTable ds = new DataTable();
+            da.Fill(ds);
             shipmentReport sr = new shipmentReport();
             sr.SetDataSource(ds);
             fw.crystalReportViewer1.ReportSource = sr;
-            fw.crystalReportViewer1.Refresh();
+            //fw.crystalReportViewer1.Refresh();
             conn.Close();
         }
 
         private void printOrder_Click(object sender, EventArgs e)
         {
 
+            string aid = "000001";
             SqlConnection conn = new SqlConnection(strConn);
             formViewer fw = new formViewer();
             fw.Show();
@@ -63,14 +64,18 @@ namespace ItemMgmt
             {
                 conn.Open();
             }
-            SqlCommand cmd = new SqlCommand("SELECT * FROM OrderSell WHERE agentID=00000000", conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds,"Sales");
+            //The problem section
+            //SqlCommand cmd = new SqlCommand();
+            SqlDataAdapter da = new SqlDataAdapter("select * from [OrderSell] where agentID = '" + aid + "'", conn);
+            //SqlDataAdapter da = new SqlDataAdapter("select * from OrderSell", conn);
+            DataTable tablea = new DataTable();
+            da.Fill(tablea);
             orderReport or = new orderReport();
-            or.SetDataSource(ds);
+            or.SetDataSource(tablea);
             fw.crystalReportViewer1.ReportSource = or;
-            fw.crystalReportViewer1.Refresh();
+            //fw.crystalReportViewer1.Refresh();
+            //SqlCommand cmd = new SqlCommand("select * from [OrderSell] where agentID = '000001'", conn);
+            //SqlDataReader sdr = cmd.ExecuteReader();
             conn.Close();
 
         }
@@ -86,10 +91,11 @@ namespace ItemMgmt
             {
                 conn.Open();
             }
-            SqlCommand cmd = new SqlCommand("SELECT * FROM OrderSell", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM OrderSell where orderDate BETWEEN '2022-12-01' AND '2022-12-31'", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds,"Orders");
+            //DataSet ds = new DataSet();
+            DataTable ds = new DataTable();
+            da.Fill(ds);
             monthlyReport mr = new monthlyReport();
             mr.SetDataSource(ds);
             fw.crystalReportViewer1.ReportSource = mr;
