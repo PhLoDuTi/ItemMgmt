@@ -58,8 +58,7 @@ namespace ItemMgmt
 
         private void printOrder_Click(object sender, EventArgs e)
         {
-
-            string aid = "000001";
+            String order = orderSelect.SelectedValue.ToString();
             SqlConnection conn = new SqlConnection(strConn);
             formViewer fw = new formViewer();
             fw.Show();
@@ -68,18 +67,12 @@ namespace ItemMgmt
             {
                 conn.Open();
             }
-            //The problem section
-            //SqlCommand cmd = new SqlCommand();
-            SqlDataAdapter da = new SqlDataAdapter("select * from [OrderSell] where agentID = '" + aid + "'", conn);
-            //SqlDataAdapter da = new SqlDataAdapter("select * from OrderSell", conn);
+            SqlDataAdapter da = new SqlDataAdapter("select * from [OrderSell] where orderID = '" + order + "'", conn);
             DataTable tablea = new DataTable();
             da.Fill(tablea);
             orderReport or = new orderReport();
             or.SetDataSource(tablea);
             fw.crystalReportViewer1.ReportSource = or;
-            //fw.crystalReportViewer1.Refresh();
-            //SqlCommand cmd = new SqlCommand("select * from [OrderSell] where agentID = '000001'", conn);
-            //SqlDataReader sdr = cmd.ExecuteReader();
             conn.Close();
 
         }
@@ -97,7 +90,6 @@ namespace ItemMgmt
             }
             SqlCommand cmd = new SqlCommand("SELECT * FROM OrderSell where orderDate BETWEEN '2022-12-01' AND '2022-12-31'", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
             DataTable ds = new DataTable();
             da.Fill(ds);
             monthlyReport mr = new monthlyReport();
@@ -143,31 +135,55 @@ namespace ItemMgmt
 
         private void queryApplyOrders_Click(object sender, EventArgs e)
         {
-            ordersDGV.DataSource = findOrder().Tables[0];
+            String order = orderSelect.SelectedValue.ToString();
+            ordersDGV.DataSource = findOrder(order).Tables[0];
         }
 
-        DataSet findOrder()
+        DataSet findOrder(String order)
         {
             SqlConnection conn = new SqlConnection(strConn);
             DataSet ds = new DataSet();
-            string aid = "000001";
 
             if (conn.State!=ConnectionState.Open)
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("select * from [OrderSell] where agentID = '" + aid + "'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("select * from [OrderSell] where orderID = '" + order + "'", conn);
                 da.Fill(ds);
                 conn.Close();
             }
             return ds;
         }
+        private void orderTab_Click(object sender, EventArgs e)
+        {
+            updateOrderSelection();
+        }
+
+        void updateOrderSelection()
+        {
+            SqlConnection conn = new SqlConnection(strConn);
+            DataTable ds = new DataTable();
+
+            if (conn.State!=ConnectionState.Open)
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT orderID FROM OrderSell", conn);
+                da.Fill(ds);
+                orderSelect.ValueMember = "orderID";
+                orderSelect.DisplayMember = "orderID";
+                orderSelect.DataSource = ds;
+            }
+            conn.Close();
+        }
+
 
         private void applyQueryMonthly_Click(object sender, EventArgs e)
         {
-            monthDGV.DataSource = findMonthly().Tables[0];
+            string dateStart = dateStartPick.Value.Date.ToString();
+            string dateEnd = dateEndPick.Value.Date.ToString();
+            monthDGV.DataSource = findMonthly(dateStart,dateEnd).Tables[0];
         }
 
-        DataSet findMonthly()
+        DataSet findMonthly(string dateStart,string dateEnd)
         {
             SqlConnection conn = new SqlConnection(strConn);
             DataSet ds = new DataSet();
@@ -175,7 +191,7 @@ namespace ItemMgmt
             if (conn.State!=ConnectionState.Open)
             {
                 conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM OrderSell where orderDate BETWEEN '2022-12-01' AND '2022-12-31'", conn);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM OrderSell where orderDate BETWEEN '" + dateStart + "' AND '" + dateEnd + "'", conn);
                 da.Fill(ds);
                 conn.Close();
             }

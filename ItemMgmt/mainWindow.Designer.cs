@@ -73,6 +73,7 @@ namespace ItemMgmt
             this.orderPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.queryApplyOrders = new System.Windows.Forms.Button();
             this.applyQueryMonthly = new System.Windows.Forms.Button();
+            this.orderSelect = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tabMenu.SuspendLayout();
             this.shipTab.SuspendLayout();
@@ -206,6 +207,7 @@ namespace ItemMgmt
             // 
             // orderTab
             // 
+            this.orderTab.Controls.Add(this.orderSelect);
             this.orderTab.Controls.Add(this.queryApplyOrders);
             this.orderTab.Controls.Add(this.ordersDGV);
             this.orderTab.Controls.Add(this.printOrder);
@@ -216,6 +218,7 @@ namespace ItemMgmt
             this.orderTab.TabIndex = 1;
             this.orderTab.Text = "Orders";
             this.orderTab.UseVisualStyleBackColor = true;
+            this.orderTab.Click += new System.EventHandler(this.orderTab_Click);
             // 
             // ordersDGV
             // 
@@ -442,7 +445,7 @@ namespace ItemMgmt
             // 
             // queryApplyOrders
             // 
-            this.queryApplyOrders.Location = new System.Drawing.Point(9, 433);
+            this.queryApplyOrders.Location = new System.Drawing.Point(516, 433);
             this.queryApplyOrders.Name = "queryApplyOrders";
             this.queryApplyOrders.Size = new System.Drawing.Size(91, 23);
             this.queryApplyOrders.TabIndex = 4;
@@ -460,6 +463,15 @@ namespace ItemMgmt
             this.applyQueryMonthly.UseVisualStyleBackColor = true;
             this.applyQueryMonthly.Click += new System.EventHandler(this.applyQueryMonthly_Click);
             // 
+            // orderSelect
+            // 
+            this.orderSelect.FormattingEnabled = true;
+            this.orderSelect.Location = new System.Drawing.Point(9, 435);
+            this.orderSelect.Name = "orderSelect";
+            this.orderSelect.Size = new System.Drawing.Size(121, 21);
+            this.orderSelect.TabIndex = 5;
+            this.orderSelect.Text = "Filter By Order ID";
+            // 
             // LoginWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,9 +479,10 @@ namespace ItemMgmt
             this.ClientSize = new System.Drawing.Size(745, 513);
             this.Controls.Add(this.tabMenu);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "LoginWin";
-            this.Text = "Goods Received";
+            this.Text = "BFE General Goods Item Management Suite";
             this.Load += new System.EventHandler(this.LoginWin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -533,6 +546,7 @@ namespace ItemMgmt
         private System.Windows.Forms.DataGridViewTextBoxColumn orderPriceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Button queryApplyOrders;
         private System.Windows.Forms.Button applyQueryMonthly;
+        private System.Windows.Forms.ComboBox orderSelect;
     }
 }
 
