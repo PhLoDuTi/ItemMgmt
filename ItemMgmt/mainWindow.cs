@@ -77,6 +77,8 @@ namespace ItemMgmt
         private void printMonthly_Click(object sender, EventArgs e)
         {
 
+            string dateStart = dateStartPick.Value.Date.ToString();
+            string dateEnd = dateEndPick.Value.Date.ToString();
             SqlConnection conn = new SqlConnection(strConn);
             formViewer fw = new formViewer();
             fw.Show();
@@ -85,7 +87,7 @@ namespace ItemMgmt
             {
                 conn.Open();
             }
-            SqlCommand cmd = new SqlCommand("SELECT * FROM OrderSell where orderDate BETWEEN '2022-12-01' AND '2022-12-31'", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM OrderSell where orderDate BETWEEN '" + dateStart + "' AND '" + dateEnd + "'", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable ds = new DataTable();
             da.Fill(ds);
