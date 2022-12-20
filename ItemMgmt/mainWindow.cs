@@ -15,8 +15,6 @@ namespace ItemMgmt
     public partial class LoginWin : Form
     {
 
-        //SqlConnection conn = new SqlConnection();
-
         String strConn = ConfigurationManager.ConnectionStrings["MyConn"].ConnectionString;
 
         public LoginWin()
@@ -52,7 +50,6 @@ namespace ItemMgmt
             shipmentReport sr = new shipmentReport();
             sr.SetDataSource(ds);
             fw.crystalReportViewer1.ReportSource = sr;
-            //fw.crystalReportViewer1.Refresh();
             conn.Close();
         }
 
@@ -99,22 +96,9 @@ namespace ItemMgmt
             conn.Close();
 
         }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-                MessageBox.Show("Developed by DT SoftwareCo. Ltd.", "About this application");
-
-        }
-
-        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void queryApplyImport_Click(object sender, EventArgs e)
         {
             //init dgv
-            //importDGV.DataSource = findOrder().Tables[0];
             importDGV.DataSource = findImport().Tables[0];
         }
         DataSet findImport()
@@ -197,5 +181,17 @@ namespace ItemMgmt
             }
             return ds;
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                MessageBox.Show("Developed by DT SoftwareCo. Ltd.", "About this application");
+
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
