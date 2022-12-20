@@ -68,11 +68,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="formPreview.cs">
+    <Compile Include="mainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formPreview.Designer.cs">
-      <DependentUpon>formPreview.cs</DependentUpon>
+    <Compile Include="mainWindow.Designer.cs">
+      <DependentUpon>mainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="formPrint.cs">
       <SubType>Form</SubType>
@@ -84,11 +84,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GoodsMgntDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GoodsMgntDataSet11.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GoodsMgntDataSet11.xsd</DependentUpon>
     </Compile>
     <Compile Include="Item.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -128,8 +123,8 @@
       <DependentUpon>shipmentReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="formPreview.resx">
-      <DependentUpon>formPreview.cs</DependentUpon>
+    <EmbeddedResource Include="mainWindow.resx">
+      <DependentUpon>mainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPrint.resx">
       <DependentUpon>formPrint.cs</DependentUpon>
@@ -169,17 +164,6 @@
     </None>
     <None Include="GoodsMgntDataSet.xss">
       <DependentUpon>GoodsMgntDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GoodsMgntDataSet11.xsc">
-      <DependentUpon>GoodsMgntDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="GoodsMgntDataSet11.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GoodsMgntDataSet11.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GoodsMgntDataSet11.xss">
-      <DependentUpon>GoodsMgntDataSet11.xsd</DependentUpon>
     </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>

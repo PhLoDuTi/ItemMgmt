@@ -26,8 +26,12 @@ namespace ItemMgmt
 
         private void LoginWin_Load(object sender, EventArgs e)
         {
-            //conn.Open();
-            //conn.ConnectionString = @"Data Source=(local); Initial Catalog= GoodsMgnt;Integrated Security=True";
+            SqlConnection conn = new SqlConnection(strConn);
+            if (conn.State!=ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            conn.Close();
         }
 
         private void printShip_Click(object sender, EventArgs e)
@@ -113,6 +117,69 @@ namespace ItemMgmt
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void queryApplyImport_Click(object sender, EventArgs e)
+        {
+            //init dgv
+            //importDGV.DataSource = findOrder().Tables[0];
+            importDGV.DataSource = findImport().Tables[0];
+        }
+        DataSet findImport()
+        {
+            SqlConnection conn = new SqlConnection(strConn);
+            DataSet ds = new DataSet();
+
+            SqlCommand cmd = new SqlCommand("select * from OrderImport", conn);
+            if (conn.State!=ConnectionState.Open)
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                conn.Close();
+            }
+            return ds;
+        }
+
+        private void queryApplyOrders_Click(object sender, EventArgs e)
+        {
+            ordersDGV.DataSource = findOrder().Tables[0];
+        }
+
+        DataSet findOrder()
+        {
+            SqlConnection conn = new SqlConnection(strConn);
+            DataSet ds = new DataSet();
+            string aid = "000001";
+
+            if (conn.State!=ConnectionState.Open)
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("select * from [OrderSell] where agentID = '" + aid + "'", conn);
+                da.Fill(ds);
+                conn.Close();
+            }
+            return ds;
+        }
+
+        private void applyQueryMonthly_Click(object sender, EventArgs e)
+        {
+            monthDGV.DataSource = findMonthly().Tables[0];
+        }
+
+        DataSet findMonthly()
+        {
+            SqlConnection conn = new SqlConnection(strConn);
+            DataSet ds = new DataSet();
+
+            if (conn.State!=ConnectionState.Open)
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM OrderSell where orderDate BETWEEN '2022-12-01' AND '2022-12-31'", conn);
+                da.Fill(ds);
+                conn.Close();
+            }
+            return ds;
         }
     }
 }
