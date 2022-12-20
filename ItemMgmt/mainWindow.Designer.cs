@@ -88,7 +88,7 @@ namespace ItemMgmt
             // 
             // printShip
             // 
-            this.printShip.Location = new System.Drawing.Point(580, 252);
+            this.printShip.Location = new System.Drawing.Point(661, 429);
             this.printShip.Name = "printShip";
             this.printShip.Size = new System.Drawing.Size(68, 23);
             this.printShip.TabIndex = 1;
@@ -98,7 +98,7 @@ namespace ItemMgmt
             // 
             // printOrder
             // 
-            this.printOrder.Location = new System.Drawing.Point(579, 252);
+            this.printOrder.Location = new System.Drawing.Point(665, 433);
             this.printOrder.Name = "printOrder";
             this.printOrder.Size = new System.Drawing.Size(69, 23);
             this.printOrder.TabIndex = 2;
@@ -108,7 +108,7 @@ namespace ItemMgmt
             // 
             // printMonthly
             // 
-            this.printMonthly.Location = new System.Drawing.Point(553, 254);
+            this.printMonthly.Location = new System.Drawing.Point(629, 429);
             this.printMonthly.Name = "printMonthly";
             this.printMonthly.Size = new System.Drawing.Size(100, 23);
             this.printMonthly.TabIndex = 3;
@@ -123,7 +123,7 @@ namespace ItemMgmt
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(664, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(745, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -159,7 +159,7 @@ namespace ItemMgmt
             this.tabMenu.Location = new System.Drawing.Point(0, 27);
             this.tabMenu.Name = "tabMenu";
             this.tabMenu.SelectedIndex = 0;
-            this.tabMenu.Size = new System.Drawing.Size(664, 310);
+            this.tabMenu.Size = new System.Drawing.Size(745, 488);
             this.tabMenu.TabIndex = 5;
             // 
             // shipTab
@@ -170,7 +170,7 @@ namespace ItemMgmt
             this.shipTab.Location = new System.Drawing.Point(4, 22);
             this.shipTab.Name = "shipTab";
             this.shipTab.Padding = new System.Windows.Forms.Padding(3);
-            this.shipTab.Size = new System.Drawing.Size(656, 284);
+            this.shipTab.Size = new System.Drawing.Size(737, 462);
             this.shipTab.TabIndex = 0;
             this.shipTab.Text = "Imports";
             this.shipTab.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@ namespace ItemMgmt
             this.importDGV.DataSource = this.goodsMgntDataSetBindingSource1;
             this.importDGV.Location = new System.Drawing.Point(7, 7);
             this.importDGV.Name = "importDGV";
-            this.importDGV.Size = new System.Drawing.Size(641, 239);
+            this.importDGV.Size = new System.Drawing.Size(722, 416);
             this.importDGV.TabIndex = 2;
             // 
             // goodsMgntDataSetBindingSource
@@ -212,7 +212,7 @@ namespace ItemMgmt
             this.orderTab.Location = new System.Drawing.Point(4, 22);
             this.orderTab.Name = "orderTab";
             this.orderTab.Padding = new System.Windows.Forms.Padding(3);
-            this.orderTab.Size = new System.Drawing.Size(656, 284);
+            this.orderTab.Size = new System.Drawing.Size(737, 462);
             this.orderTab.TabIndex = 1;
             this.orderTab.Text = "Orders";
             this.orderTab.UseVisualStyleBackColor = true;
@@ -234,7 +234,7 @@ namespace ItemMgmt
             this.ordersDGV.DataSource = this.goodsMgntDataSetBindingSource;
             this.ordersDGV.Location = new System.Drawing.Point(9, 7);
             this.ordersDGV.Name = "ordersDGV";
-            this.ordersDGV.Size = new System.Drawing.Size(641, 239);
+            this.ordersDGV.Size = new System.Drawing.Size(720, 420);
             this.ordersDGV.TabIndex = 3;
             // 
             // reportTab
@@ -249,7 +249,7 @@ namespace ItemMgmt
             this.reportTab.Location = new System.Drawing.Point(4, 22);
             this.reportTab.Name = "reportTab";
             this.reportTab.Padding = new System.Windows.Forms.Padding(3);
-            this.reportTab.Size = new System.Drawing.Size(656, 284);
+            this.reportTab.Size = new System.Drawing.Size(737, 462);
             this.reportTab.TabIndex = 2;
             this.reportTab.Text = "Montly Reports";
             this.reportTab.UseVisualStyleBackColor = true;
@@ -270,15 +270,15 @@ namespace ItemMgmt
             this.monthDGV.Cursor = System.Windows.Forms.Cursors.Default;
             this.monthDGV.DataMember = "OrderSell";
             this.monthDGV.DataSource = this.goodsMgntDataSetBindingSource;
-            this.monthDGV.Location = new System.Drawing.Point(3, 7);
+            this.monthDGV.Location = new System.Drawing.Point(11, 7);
             this.monthDGV.Name = "monthDGV";
-            this.monthDGV.Size = new System.Drawing.Size(647, 242);
+            this.monthDGV.Size = new System.Drawing.Size(718, 416);
             this.monthDGV.TabIndex = 8;
             // 
             // labelEnd
             // 
             this.labelEnd.AutoSize = true;
-            this.labelEnd.Location = new System.Drawing.Point(142, 256);
+            this.labelEnd.Location = new System.Drawing.Point(149, 434);
             this.labelEnd.Name = "labelEnd";
             this.labelEnd.Size = new System.Drawing.Size(26, 13);
             this.labelEnd.TabIndex = 7;
@@ -287,7 +287,7 @@ namespace ItemMgmt
             // labelStart
             // 
             this.labelStart.AutoSize = true;
-            this.labelStart.Location = new System.Drawing.Point(1, 256);
+            this.labelStart.Location = new System.Drawing.Point(8, 434);
             this.labelStart.Name = "labelStart";
             this.labelStart.Size = new System.Drawing.Size(29, 13);
             this.labelStart.TabIndex = 6;
@@ -297,7 +297,7 @@ namespace ItemMgmt
             // 
             this.dateEndPick.CustomFormat = "MM/yyyy";
             this.dateEndPick.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateEndPick.Location = new System.Drawing.Point(174, 254);
+            this.dateEndPick.Location = new System.Drawing.Point(181, 432);
             this.dateEndPick.Name = "dateEndPick";
             this.dateEndPick.Size = new System.Drawing.Size(96, 20);
             this.dateEndPick.TabIndex = 5;
@@ -306,14 +306,14 @@ namespace ItemMgmt
             // 
             this.dateStartPick.CustomFormat = "MM/yyyy";
             this.dateStartPick.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateStartPick.Location = new System.Drawing.Point(36, 254);
+            this.dateStartPick.Location = new System.Drawing.Point(43, 432);
             this.dateStartPick.Name = "dateStartPick";
             this.dateStartPick.Size = new System.Drawing.Size(96, 20);
             this.dateStartPick.TabIndex = 4;
             // 
             // queryApplyImport
             // 
-            this.queryApplyImport.Location = new System.Drawing.Point(437, 252);
+            this.queryApplyImport.Location = new System.Drawing.Point(8, 429);
             this.queryApplyImport.Name = "queryApplyImport";
             this.queryApplyImport.Size = new System.Drawing.Size(91, 23);
             this.queryApplyImport.TabIndex = 3;
@@ -442,7 +442,7 @@ namespace ItemMgmt
             // 
             // queryApplyOrders
             // 
-            this.queryApplyOrders.Location = new System.Drawing.Point(459, 252);
+            this.queryApplyOrders.Location = new System.Drawing.Point(9, 433);
             this.queryApplyOrders.Name = "queryApplyOrders";
             this.queryApplyOrders.Size = new System.Drawing.Size(91, 23);
             this.queryApplyOrders.TabIndex = 4;
@@ -452,7 +452,7 @@ namespace ItemMgmt
             // 
             // applyQueryMonthly
             // 
-            this.applyQueryMonthly.Location = new System.Drawing.Point(434, 255);
+            this.applyQueryMonthly.Location = new System.Drawing.Point(283, 432);
             this.applyQueryMonthly.Name = "applyQueryMonthly";
             this.applyQueryMonthly.Size = new System.Drawing.Size(91, 23);
             this.applyQueryMonthly.TabIndex = 9;
@@ -464,7 +464,7 @@ namespace ItemMgmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 336);
+            this.ClientSize = new System.Drawing.Size(745, 513);
             this.Controls.Add(this.tabMenu);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
